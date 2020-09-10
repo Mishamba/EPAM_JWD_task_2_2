@@ -1,8 +1,10 @@
 package com.mishamba.day2.model;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
-public class Sentence {
+public class Sentence implements Comparable<Sentence> {
     private ArrayList<Part> parts;
 
     public Sentence(ArrayList<Part> parts) {
@@ -44,5 +46,17 @@ public class Sentence {
         }
 
         return hash;
+    }
+
+    @Override
+    public int compareTo(@NotNull Sentence sentence) {
+        int result = this.getParts().size() - sentence.getParts().size();
+        if (result > 1) {
+            result = 1;
+        } else if (result < -1) {
+            result = -1;
+        }
+
+        return result;
     }
 }

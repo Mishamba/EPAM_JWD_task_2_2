@@ -10,6 +10,17 @@ import org.apache.log4j.Logger;
 public class RestorerImpl implements Restorer {
     private final Logger logger = Logger.getRootLogger();
 
+    private RestorerImpl() {
+    }
+
+    private static class RestorerImplHandler {
+        private static final RestorerImpl HANDLER_INSTANCE = new RestorerImpl();
+    }
+
+    public static RestorerImpl getInstance() {
+        return RestorerImplHandler.HANDLER_INSTANCE;
+    }
+
     @Override
     public String restore(CustomText text) throws UtilException {
         if (text == null) {
