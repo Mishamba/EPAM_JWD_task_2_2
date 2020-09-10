@@ -2,10 +2,10 @@ package com.mishamba.day2.model;
 
 import java.util.ArrayList;
 
-public class Text {
+public class CustomText {
     private ArrayList<Sentence> sentences;
 
-    public Text(ArrayList<Sentence> sentences) {
+    public CustomText(ArrayList<Sentence> sentences) {
         this.sentences = sentences;
     }
 
@@ -31,7 +31,7 @@ public class Text {
             return false;
         }
 
-        Text text = (Text) o;
+        CustomText text = (CustomText) o;
         return getSentences().equals(text.getSentences());
     }
 
